@@ -78,7 +78,7 @@ public class Controller implements Initializable {
         System.out.println(SQL_States.NAME_OF_WINNER);
         db_con.print(SQL_States.NAME_OF_WINNER);
         ViewHelper.showDataPie(db_con.getList(),
-                "Wie häufig wurde nach dem „Miss USA“ Wettbewerb gesucht zwischen März und Ende Mai?");
+                "Wie oft wurde gezielt nach dem Namen der Gewinnerin gesucht?");
 
     }
 
