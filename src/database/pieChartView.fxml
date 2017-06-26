@@ -11,8 +11,8 @@
     <children>
         <Pane prefHeight="300.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-            <PieChart fx:id="pieChart" layoutY="40.0" prefHeight="250.0" prefWidth="500.0" />
-                <Label fx:id="question" alignment="TOP_LEFT" maxWidth="500.0" wrapText="true">
+            <PieChart fx:id="pieChart" layoutY="40.0" prefHeight="250.0" prefWidth="500.0" style="-fx-background-color: white;" />
+                <Label fx:id="question" alignment="TOP_LEFT" maxWidth="500.0" style="-fx-background-color: white;" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font>

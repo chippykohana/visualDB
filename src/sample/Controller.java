@@ -8,6 +8,10 @@ import javafx.scene.control.Button;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -71,7 +75,13 @@ public class Controller implements Initializable {
     }
 
     private void exeAufg5() {
-
+        System.out.println(SQL_States.DAYS_MOST_CLICKED);
+        db_con.print(SQL_States.DAYS_MOST_CLICKED);
+        ViewHelper.showDataLine(db_con.getList(),
+                "An welchen Tagen wurden die meisten Anfragen zu unserem Thema gestellt?",
+                "Date",
+                "Clicks",
+                "Searched for Miss USA");
     }
 
     private void exeAufg4() {
@@ -97,6 +107,15 @@ public class Controller implements Initializable {
     }
 
     private void exeAufg1() {
+        String testDateString = "05-03";
+        SimpleDateFormat df = new SimpleDateFormat("MM-dd");
+        Date d1 = null;
+        try {
+            d1 = df.parse(testDateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Date: "+ df.toPattern());
         System.out.println("test1");
     }
 }

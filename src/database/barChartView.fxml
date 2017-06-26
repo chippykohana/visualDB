@@ -10,7 +10,7 @@
     <children>
         <Pane prefHeight="300.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <BarChart fx:id="barChart" layoutY="40.0" prefHeight="250.0" prefWidth="500.0">
+                <BarChart fx:id="barChart" layoutY="40.0" prefHeight="250.0" prefWidth="500.0" style="-fx-background-color: white;" stylesheets="@../colors.css">
                     <xAxis>
                         <CategoryAxis side="BOTTOM" fx:id="xAxis" />
                     </xAxis>
@@ -18,7 +18,7 @@
                         <NumberAxis fx:id="yAxis" side="LEFT" />
                     </yAxis>
                 </BarChart>
-                <Label fx:id="question" alignment="TOP_LEFT" maxWidth="500.0" wrapText="true">
+                <Label fx:id="question" alignment="TOP_LEFT" maxWidth="500.0" style="-fx-background-color: white;" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font>

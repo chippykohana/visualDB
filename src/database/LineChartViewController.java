@@ -9,6 +9,9 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -17,22 +20,22 @@ import java.util.*;
 public class LineChartViewController implements Initializable {
 
     @FXML
-    private NumberAxis yAxis;
+    NumberAxis yAxis;
 
     @FXML
-    private CategoryAxis xAxis;
+    CategoryAxis xAxis;
 
     @FXML
-    private LineChart<?, ?> lineChart;
+    LineChart<String, Number> lineChart;
 
     @FXML
-    private Label question;
+    Label question;
 
     private String xName, yName, q, seriesName;
-    private HashMap<String, Integer> list;
+    private ArrayList<Info_Storage> list;
     XYChart.Series series;
 
-    public LineChartViewController(HashMap<String, Integer> list, String q, String yName, String xName, String seriesName) {
+    public LineChartViewController(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         this.xName = xName;
         this.yName = yName;
         this.q = q;
@@ -48,13 +51,7 @@ public class LineChartViewController implements Initializable {
         xAxis.setLabel(xName);
         yAxis.setLabel(yName);
 
-        Set set = list.entrySet();
-        Iterator i = set.iterator();
-
-        while (i.hasNext()) {
-            Map.Entry me = (Map.Entry) i.next();
-            series.getData().add(new XYChart.Data(me.getKey(), me.getValue()));
-        }
+        for (Info_Storage info_storage : list) series.getData().add(new XYChart.Data(info_storage.getKey(), info_storage.getValue()));
 
         lineChart.getData().addAll(series);
     }

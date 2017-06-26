@@ -37,10 +37,10 @@ public class BarChartViewController implements Initializable {
     Label question;
 
     private String xName, yName, q, seriesName;
-    private HashMap<String, Integer> list;
+    private ArrayList<Info_Storage> list;
     XYChart.Series series;
 
-    public BarChartViewController(HashMap<String, Integer> list, String q, String xName, String yName, String seriesName) {
+    public BarChartViewController(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         this.list = list;
         this.xName = xName;
         this.yName = yName;
@@ -55,17 +55,11 @@ public class BarChartViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         series = new XYChart.Series();
         series.setName(seriesName);
-        question.setText(q);
         xAxis.setLabel(xName);
         yAxis.setLabel(yName);
+        question.setText(q);
 
-        Set set = list.entrySet();
-        Iterator i = set.iterator();
-
-        while (i.hasNext()) {
-            Map.Entry me = (Map.Entry) i.next();
-            series.getData().add(new XYChart.Data(me.getKey(), me.getValue()));
-        }
+        for (Info_Storage info_storage : list) series.getData().add(new XYChart.Data(info_storage.getKey(), info_storage.getValue()));
 
         barChart.getData().addAll(series);
     }

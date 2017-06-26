@@ -1,20 +1,23 @@
 package database;
 
 import java.sql.*;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Hashtable;
+import java.util.Iterator;
 
 /**
  * Created by young on 25.06.2017.
  */
 public class DB_Con {
     private static final String DBNAME = "dbsBeuth";
-    private static final String URL = "jdbc:oracle:thin:@dbl43.beuth-hochschule.de:1521:oracle";
-    //private static final String URL = "jdbc:oracle:thin:@localhost:1521:oracle";
+    //private static final String URL = "jdbc:oracle:thin:@dbl43.beuth-hochschule.de:1521:oracle";
+    private static final String URL = "jdbc:oracle:thin:@localhost:1521:oracle";
     private static final String USER = "s856667";
     private static final String PASSWORD = "lovey";
     private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
     private Connection con;
-    private HashMap<String, Integer> list;
+    private ArrayList<Info_Storage> list;
 
     private Connection connect(String dbname) throws SQLException {
         Connection con = null;
@@ -28,7 +31,7 @@ public class DB_Con {
         return con;
     }
 
-    public HashMap<String, Integer> getList() {
+    public ArrayList<Info_Storage> getList() {
         return list;
     }
 
@@ -65,8 +68,8 @@ public class DB_Con {
         System.out.println("Connection is closed: " + con.isClosed());
     }
 
-    private HashMap<String, Integer> printResultSet2Shell(ResultSet rs, String query, long executiontime) throws SQLException {
-        HashMap<String, Integer> store = new HashMap<>();
+    private ArrayList<Info_Storage> printResultSet2Shell(ResultSet rs, String query, long executiontime) throws SQLException {
+        ArrayList<Info_Storage> store = new ArrayList<>();
 
         System.out.println("===============================================================");
         System.out.println(query);
@@ -77,7 +80,7 @@ public class DB_Con {
             String name = rs.getString("Key");
             int value = rs.getInt("Anzahl");
             System.out.println("name : " + name + " value: " + value);
-            store.put(name,value);
+            store.add(new Info_Storage(name,value));
         }
 
         System.out.println("===============================================================");

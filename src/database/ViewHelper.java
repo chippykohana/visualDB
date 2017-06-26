@@ -2,7 +2,8 @@ package database;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Hashtable;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,19 +20,19 @@ import javafx.stage.StageStyle;
  */
 public class ViewHelper {
 
-    public static void showDataLine(HashMap<String, Integer> list, String q, String xName, String yName, String seriesName) {
+    public static void showDataLine(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         URL location = new ViewHelper().getClass().getResource("lineChartView.fxml");
         Initializable controller = new LineChartViewController(list, q, xName, yName, seriesName);
         showView(controller, location);
     }
 
-    public static void showDataPie(HashMap<String, Integer> list, String q) {
+    public static void showDataPie(ArrayList<Info_Storage> list, String q) {
         URL location = new ViewHelper().getClass().getResource("pieChartView.fxml");
         Initializable controller = new PieChartViewController(list, q);
         showView(controller, location);
     }
 
-    public static void showDataBar(HashMap<String, Integer> list, String q, String xName, String yName, String seriesName) {
+    public static void showDataBar(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         URL location = new ViewHelper().getClass().getResource("barChartView.fxml");
         Initializable controller = new BarChartViewController(list, q, xName, yName, seriesName);
         showView(controller, location);

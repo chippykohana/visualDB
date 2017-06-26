@@ -21,9 +21,9 @@ public class PieChartViewController implements Initializable {
     Label question;
 
     private String q;
-    private HashMap<String, Integer> list;
+    private ArrayList<Info_Storage> list;
 
-    public PieChartViewController(HashMap<String, Integer> list, String q) {
+    public PieChartViewController(ArrayList<Info_Storage> list, String q) {
         this.list = list;
         this.q = q;
     }
@@ -32,10 +32,6 @@ public class PieChartViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         question.setText(q);
 
-        for (Map.Entry<String, Integer> entry : list.entrySet()) {
-            String key = entry.getKey();
-            double val = entry.getValue();
-            pieChart.getData().add(new PieChart.Data(key, val));
-        }
+        for (Info_Storage info_storage : list) pieChart.getData().add(new PieChart.Data(info_storage.getKey(), info_storage.getValue()));
     }
 }

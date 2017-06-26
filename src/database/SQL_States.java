@@ -12,7 +12,9 @@ public class SQL_States {
     private final static String querytime = "querytime";
     private final static String query = "query";
     private final static String clickurl = "clickurl";
-    private final static String contestDay = "21.04.06 00:00:00,000000000";
+    private final static String contestDay = "21.04.06 00:00:00";
+    private final static String searchMissUsa = "'%miss usa%'";
+    private final static String qTimeToChar = "to_char(querytime,'mm-dd')";
     private final static String extractMonth = "extract(month from " + querytime + ")";
 
     private final static String name = "name";
@@ -21,7 +23,7 @@ public class SQL_States {
     public final static String WEBSITE = "SELECT " + clickurl + " AS Key, " +
             "COUNT(*) AS Anzahl " +
             "FROM " + TBL_aol + " " +
-            "WHERE " + query + " LIKE '%miss usa%' " +
+            "WHERE " + query + " LIKE " + searchMissUsa + " " +
             "GROUP BY " + clickurl + " " +
             "HAVING COUNT(*) >= 10 " +
             "ORDER BY COUNT(*) DESC;";
@@ -32,7 +34,7 @@ public class SQL_States {
             "WHEN " + extractMonth + " = 4 then 'April' " +
             "WHEN " + extractMonth + " = 5 then 'Mai' end AS Key " +
             "FROM " + TBL_aol + " " +
-            "WHERE " + query + " LIKE '%miss usa%' " +
+            "WHERE " + query + " LIKE " + searchMissUsa + " " +
             "GROUP BY " + extractMonth + " " +
             "ORDER BY " + extractMonth;
 
@@ -42,6 +44,15 @@ public class SQL_States {
             "FROM " + TBL_aol + " INNER JOIN " + TBL_kandidat + " ON " + query + " LIKE LOWER('%' || " + name + " || '%') " +
             "GROUP BY " + name + " " +
             "ORDER BY COUNT(" + name + ") DESC";
+
+    //Aufgabe 1.5
+    public final static String DAYS_MOST_CLICKED = "SELECT " + qTimeToChar + " AS Key, " +
+            "COUNT(*) AS Anzahl " +
+            "FROM " + TBL_aol + " " +
+            "WHERE " + query + " LIKE " + searchMissUsa + " " +
+            "GROUP BY " + qTimeToChar + " " +
+            "HAVING COUNT(*) >= 5 " +
+            "ORDER BY " + qTimeToChar;
 
     //Aufgabe 1.8
     public final static String PARTIC_BEFORE_CONTEST = "SELECT " + name + " AS Key, " +
