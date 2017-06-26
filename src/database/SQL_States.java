@@ -11,10 +11,20 @@ public class SQL_States {
 
     private final static String querytime = "querytime";
     private final static String query = "query";
+    private final static String clickurl = "clickurl";
     private final static String contestDay = "21.04.06 00:00:00,000000000";
     private final static String extractMonth = "extract(month from " + querytime + ")";
 
     private final static String name = "name";
+
+    //Aufgabe 1.1
+    public final static String WEBSITE = "SELECT " + clickurl + " AS Key, " +
+            "COUNT(*) AS Anzahl " +
+            "FROM " + TBL_aol + " " +
+            "WHERE " + query + " LIKE '%miss usa%' " +
+            "GROUP BY " + clickurl + " " +
+            "HAVING COUNT(*) >= 10 " +
+            "ORDER BY COUNT(*) DESC;";
 
     //Aufgabe 1.2
     public final static String CLICKS_PER_MONTHS = "SELECT COUNT(" + extractMonth + ") AS Anzahl, " +
