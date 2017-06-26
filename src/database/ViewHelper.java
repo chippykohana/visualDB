@@ -19,8 +19,14 @@ import javafx.stage.StageStyle;
  */
 public class ViewHelper {
 
-    public static void showDataPie(HashMap<String, Integer> list, String q) {
+    public static void showDataLine(HashMap<String, Integer> list, String q) {
         URL location = new ViewHelper().getClass().getResource("pieChartView.fxml");
+        Initializable controller = new PieChartViewController(list, q);
+        showView(controller, location);
+    }
+
+    public static void showDataPie(HashMap<String, Integer> list, String q) {
+        URL location = new ViewHelper().getClass().getResource("lineChartView.fxml");
         Initializable controller = new PieChartViewController(list, q);
         showView(controller, location);
     }
