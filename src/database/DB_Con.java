@@ -8,7 +8,8 @@ import java.util.HashMap;
  */
 public class DB_Con {
     private static final String DBNAME = "dbsBeuth";
-    private static final String URL = "jdbc:oracle:thin:@localhost:1521:oracle";
+    private static final String URL = "jdbc:oracle:thin:@dbl43.beuth-hochschule.de:1521:oracle";
+    //private static final String URL = "jdbc:oracle:thin:@localhost:1521:oracle";
     private static final String USER = "s856667";
     private static final String PASSWORD = "lovey";
     private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
@@ -18,9 +19,8 @@ public class DB_Con {
     private Connection connect(String dbname) throws SQLException {
         Connection con = null;
         try {
-            System.out.println("test");
             Class.forName(DRIVER);
-            System.out.println("test");
+            System.out.println("driver funkt");
             con = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (ClassNotFoundException ex) {
             System.exit(-1);
