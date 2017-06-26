@@ -3,6 +3,7 @@ package database;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
@@ -20,6 +21,9 @@ public class LineChartViewController implements Initializable {
 
     @FXML
     private CategoryAxis xAxis;
+
+    @FXML
+    private LineChart<?, ?> lineChart;
 
     @FXML
     private Label question;
@@ -51,5 +55,7 @@ public class LineChartViewController implements Initializable {
             Map.Entry me = (Map.Entry) i.next();
             series.getData().add(new XYChart.Data(me.getKey(), me.getValue()));
         }
+
+        lineChart.getData().addAll(series);
     }
 }

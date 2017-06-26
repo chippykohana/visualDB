@@ -90,7 +90,7 @@ public class Controller implements Initializable {
         System.out.println(SQL_States.CLICKS_PER_MONTHS);
         db_con.print(SQL_States.CLICKS_PER_MONTHS);
         ViewHelper.showDataBar(db_con.getList(),
-                "Wie häufig wurde nach dem „Miss USA“ Wettbewerb gesucht zwischen März und Ende Mai?",
+                "Wie häufig wurde nach dem \"Miss USA\" Wettbewerb gesucht zwischen März und Ende Mai?",
                 "Month",
                 "Clicks",
                 "Clicks per Month");
