@@ -9,9 +9,6 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**

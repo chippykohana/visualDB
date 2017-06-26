@@ -2,9 +2,6 @@ package database;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Hashtable;
-import java.util.Iterator;
 
 /**
  * Created by young on 25.06.2017.

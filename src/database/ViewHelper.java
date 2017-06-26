@@ -3,7 +3,6 @@ package database;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Hashtable;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
