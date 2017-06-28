@@ -103,6 +103,10 @@ public class Controller implements Initializable {
     }
 
     private void exeAufg1() {
-        System.out.println("test1");
+        System.out.println(SQL_States.WEBSITE);
+        db_con.print(SQL_States.WEBSITE);
+        ViewHelper.showDataTable(db_con.getList(),
+                "Welche Webseiten wurden am meisten angeklickt?");
+
     }
 }
