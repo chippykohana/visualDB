@@ -19,18 +19,42 @@ import javafx.stage.StageStyle;
  */
 public class ViewHelper {
 
+
+
+
+    /**
+     * Methode erzeugt ein LineChart
+     * @param list beinhaltet Daten aus der Datenbank
+     * @param q Frage String
+     * @param xName x-Achsenbeschriftung
+     * @param yName y-Achsenbeschriftung
+     * @param seriesName Legende
+     */
     public static void showDataLine(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         URL location = new ViewHelper().getClass().getResource("lineChartView.fxml");
         Initializable controller = new LineChartViewController(list, q, xName, yName, seriesName);
         showView(controller, location);
     }
 
+    /**
+     * Methode erzeugt ein PieChart
+     * @param list beinhaltet Daten aus der Datenbank
+     * @param q Frage String
+     */
     public static void showDataPie(ArrayList<Info_Storage> list, String q) {
         URL location = new ViewHelper().getClass().getResource("pieChartView.fxml");
         Initializable controller = new PieChartViewController(list, q);
         showView(controller, location);
     }
 
+    /**
+     * Methode erzeugt ein BarChart
+     * @param list beinhaltet Daten aus der Datenbank
+     * @param q Frage String
+     * @param xName x-Achsenbeschriftung
+     * @param yName y-Achsenbeschriftung
+     * @param seriesName Legende
+     */
     public static void showDataBar(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         URL location = new ViewHelper().getClass().getResource("barChartView.fxml");
         Initializable controller = new BarChartViewController(list, q, xName, yName, seriesName);
