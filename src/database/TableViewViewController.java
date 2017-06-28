@@ -45,12 +45,9 @@ public class TableViewViewController implements Initializable {
     }
 
     private void initTable() {
-        website.setCellValueFactory(new PropertyValueFactory<>("Website"));
-        clicks.setCellValueFactory(new PropertyValueFactory<>("Clicks"));
-
-        for (Info_Storage info_storage : list) {
-            data.add(info_storage);
-        }
+        website.setCellValueFactory(new PropertyValueFactory<>("key"));
+        clicks.setCellValueFactory(new PropertyValueFactory<>("value"));
+        data.addAll(list);
         table.setItems(data);
     }
 

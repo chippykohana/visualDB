@@ -61,6 +61,12 @@ public class ViewHelper {
         showView(controller, location);
     }
 
+    public static void showDataTable(ArrayList<Info_Storage> list, String q) {
+        URL location = new ViewHelper().getClass().getResource("tableViewView.fxml");
+        Initializable controller = new TableViewViewController(list, q);
+        showView(controller, location);
+    }
+
     /**
      * Laedt eine neue Scene in einer Stage mit dem übergebenen Controller und
      * dem übergebenen FXML-Dokument
