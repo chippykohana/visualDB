@@ -23,8 +23,7 @@ public class SQL_States {
     private final static String platzierung = "platzierung";
 
     //Aufgabe 1.1
-    public final static String WEBSITE = "SELECT " + clickurl + " AS Key, " +
-            "COUNT(*) AS Anzahl " +
+    public final static String WEBSITE = "SELECT " + clickurl + " AS Key, " + "COUNT(*) AS Anzahl " +
             "FROM " + TBL_aol + " " +
             "WHERE " + query + " LIKE " + searchMissUsa + " " +
             "GROUP BY " + clickurl + " " +
