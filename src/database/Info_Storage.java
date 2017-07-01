@@ -3,6 +3,10 @@ package database;
 /**
  * Created by young on 26.06.2017.
  */
+
+/**
+ * Ein Speicher für die Datensaetze aus der Datenbank
+ */
 public class Info_Storage {
 
     String key;
@@ -17,16 +21,8 @@ public class Info_Storage {
         return key;
     }
 
-    public void setKey(String key) {
-        this.key = key;
-    }
-
     public int getValue() {
         return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
     }
 
 }

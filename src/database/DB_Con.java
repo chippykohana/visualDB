@@ -1,5 +1,8 @@
 package database;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -10,8 +13,8 @@ public class DB_Con {
     private static final String DBNAME = "dbsBeuth";
     //private static final String URL = "jdbc:oracle:thin:@dbl43.beuth-hochschule.de:1521:oracle";
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:oracle";
-    private static final String USER = "s856667";
-    private static final String PASSWORD = "lovey";
+    private static final String USER = "s860341";
+    private static final String PASSWORD = "1997";
     private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
     private Connection con;
     private ArrayList<Info_Storage> list;
@@ -73,14 +76,35 @@ public class DB_Con {
         System.out.println("Execution Time: " + executiontime + "ms");
         System.out.println("===============================================================");
 
+        try {
+            convertToCsv(rs);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
         while (rs.next()) {
             String name = rs.getString("Key");
             int value = rs.getInt("Anzahl");
             System.out.println("name : " + name + " value: " + value);
             store.add(new Info_Storage(name,value));
+
         }
 
         System.out.println("===============================================================");
         return store;
+    }
+
+    public static void convertToCsv(ResultSet rs) throws SQLException, FileNotFoundException {
+        PrintWriter csvWriter = new PrintWriter(new File("frage5.csv")) ;
+        ResultSetMetaData meta = rs.getMetaData() ;
+        int numberOfColumns = meta.getColumnCount() ;
+        while (rs.next()) {
+            String row = "\"" + rs.getString(1).replaceAll("\"","\\\"") + "\""  ;
+            for (int i = 2 ; i < numberOfColumns + 1 ; i ++ ) {
+                row += ",\"" + rs.getString(i).replaceAll("\"","\\\"") + "\"" ;
+            }
+            csvWriter.println(row) ;
+        }
+        csvWriter.close();
     }
 }

@@ -19,9 +19,6 @@ import javafx.stage.StageStyle;
  */
 public class ViewHelper {
 
-
-
-
     /**
      * Methode erzeugt ein LineChart
      * @param list beinhaltet Daten aus der Datenbank
@@ -61,6 +58,11 @@ public class ViewHelper {
         showView(controller, location);
     }
 
+    /**
+     * Methode erzeugt eine Tabelle
+     * @param list beinhaltet Daten aus der Datenbank
+     * @param q Frage String
+     */
     public static void showDataTable(ArrayList<Info_Storage> list, String q) {
         URL location = new ViewHelper().getClass().getResource("tableViewView.fxml");
         Initializable controller = new TableViewViewController(list, q);

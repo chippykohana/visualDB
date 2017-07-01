@@ -10,9 +10,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("qView.fxml"));
         stage.setTitle("Miss USA Contest 2006");
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root, 500, 300));
         stage.show();
     }
 

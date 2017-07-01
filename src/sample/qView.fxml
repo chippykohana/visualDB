@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefWidth="500.0" style="-fx-background-color: white;" text="Miss USA 2006" textFill="#1065c0">
+               <font>
+                  <Font name="Times New Roman" size="30.0" />
+               </font>
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </Label>
+            <Label alignment="CENTER" layoutY="49.0" prefWidth="500.0" style="-fx-background-color: white;" text="Lam Ka Yan, Tran Nhu Mong, Nguyen Thi Phuong Thao" textFill="#a6aba9">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Label>
+            <Button id="round-red" fx:id="aufg1" layoutX="14.0" layoutY="86.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="Welche Webseiten wurden am meisten angeklickt?" wrapText="true" />
+            <Button id="round-red" fx:id="aufg2" layoutX="175.0" layoutY="86.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="Wie häufig wurde nach dem &quot;Miss USA&quot; Wettbewerb gesucht?" wrapText="true" />
+            <Button id="round-red" fx:id="aufg3" layoutX="336.0" layoutY="86.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="Wie oft wurde allgemein nach der Gewinnerin gesucht?" wrapText="true" />
+            <Button id="round-red" fx:id="aufg4" layoutX="14.0" layoutY="151.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="Wie oft wurde gezielt nach dem Namen der Gewinnerin gesucht?" wrapText="true" />
+            <Button id="round-red" fx:id="aufg5" layoutX="175.0" layoutY="151.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="An welchen Tagen wurden die meisten Anfragen gestellt?" wrapText="true" />
+            <Button id="round-red" fx:id="aufg6" layoutX="336.0" layoutY="151.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="Gab es generell einen Anstieg an Suchanfragen an diesen Tagen?" wrapText="true" />
+            <Button id="round-red" fx:id="aufg7" layoutX="14.0" layoutY="216.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="Zu welcher Uhrzeit wurden die meisten Anfrage gestellt?" wrapText="true" />
+            <Button id="round-red" fx:id="aufg8" layoutX="175.0" layoutY="216.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="Welche Teilnehmerinnen wurden vor der Verleihung gesucht?" wrapText="true" />
+            <Button id="round-red" fx:id="aufg9" layoutX="336.0" layoutY="216.0" maxWidth="150.0" mnemonicParsing="false" stylesheets="@../colors.css" text="Welche Teilnehmerinnen wurden nach der Verleihung gesucht?" wrapText="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

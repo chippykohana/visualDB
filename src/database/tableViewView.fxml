@@ -2,15 +2,13 @@
 
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Pane prefHeight="300.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Label fx:id="question" alignment="TOP_LEFT" maxWidth="500.0" style="-fx-background-color: white;" wrapText="true">
                     <font>
@@ -20,10 +18,10 @@
                         <Insets left="5.0" right="5.0" />
                     </padding>
                 </Label>
-            <TableView fx:id="table" layoutY="50.0" prefHeight="250.0" prefWidth="500.0">
+            <TableView fx:id="table" cacheShape="false" centerShape="false" fixedCellSize="0.0" focusTraversable="false" layoutX="34.0" layoutY="48.0" prefHeight="230.0" scaleShape="false">
               <columns>
-                <TableColumn fx:id="website" prefWidth="439.0" text="Website" />
-                <TableColumn fx:id="clicks" minWidth="0.0" prefWidth="61.0" text="Clicks" />
+                <TableColumn fx:id="website" editable="false" maxWidth="350.0" minWidth="-1.0" prefWidth="350.0" resizable="false" sortable="false" text="Website" />
+                <TableColumn fx:id="clicks" editable="false" maxWidth="80.0" minWidth="-1.0" resizable="false" sortable="false" text="Clicks" />
               </columns>
             </TableView>
             </children>

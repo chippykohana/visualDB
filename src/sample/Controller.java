@@ -89,7 +89,10 @@ public class Controller implements Initializable {
     }
 
     private void exeAufg3() {
-
+        System.out.println(SQL_States.NAME_OF_CANDIDATE);
+        db_con.print(SQL_States.NAME_OF_CANDIDATE);
+        ViewHelper.showDataPie(db_con.getList(),
+                "Wie oft wurde gezielt nach dem Namen der Gewinnerin gesucht?");
     }
 
     private void exeAufg2() {
