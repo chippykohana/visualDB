@@ -15,7 +15,6 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
 
 /**
  * Visualisierung der Daten in einem Balkendiagramm
