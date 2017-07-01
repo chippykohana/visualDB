@@ -35,5 +35,7 @@ public class PieChartViewController implements Initializable {
         question.setText(q);
 
         for (Info_Storage info_storage : list) pieChart.getData().add(new PieChart.Data(info_storage.getKey(), info_storage.getValue()));
+
+        pieChart.setAnimated(true);
     }
 }

@@ -53,6 +53,7 @@ public class LineChartViewController implements Initializable {
 
         for (Info_Storage info_storage : list) series.getData().add(new XYChart.Data(info_storage.getKey(), info_storage.getValue()));
 
+        lineChart.setAnimated(true);
         lineChart.getData().addAll(series);
     }
 }
