@@ -80,6 +80,13 @@ public class Controller implements Initializable {
     }
 
     private void exeAufg6() {
+        //System.out.println(SQL_States.MOST_CLICKED_GENERAL);
+        //db_con.print(SQL_States.MOST_CLICKED_GENERAL);
+        ViewHelper.showDataLine(readCSV("frage6.csv"),
+                "Gab es generell einen Anstieg an Suchanfragen an diesen Tagen zu anderen Themen?",
+                "Date",
+                "Clicks",
+                "Searched for Miss USA");
     }
 
     private void exeAufg5() {

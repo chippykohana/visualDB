@@ -68,7 +68,23 @@ public class SQL_States {
             "ORDER BY " + qTimeToCharDate;
 
     //Anfrage 1.6
-    public final static String MOST_CLICKED_GENERAL = "";
+    public final static String MOST_CLICKED_GENERAL = "SELECT Cool.DD AS Key, " +
+            "Cool.A2 AS Anzahl " +
+            "FROM (SELECT " + qTimeToCharDate + " AS DD, " +
+            "COUNT(*) AS A2 " +
+            "FROM " + TBL_aol + " " +
+            "WHERE " + querytime + " >= '01.04.2006 00:00' OR " + querytime + " <= '31.05.2006 00:00' " +
+            "GROUP BY " + qTimeToCharDate + " " +
+            "ORDER BY A2 DESC) Cool " +
+            "INNER JOIN (SELECT " + qTimeToCharDate + " AS BB, " +
+            "COUNT(*) AS A1 " +
+            "FROM " + TBL_aol + " " +
+            "WHERE " + query + " LIKE " + searchMissUsa + " " +
+            "GROUP BY " + qTimeToCharDate + " " +
+            "ORDER BY A1 DESC) Toll " +
+            "ON Cool.DD = Toll.BB " +
+            "GROUP BY Cool.DD, Cool.A2 " +
+            "ORDER BY Datum";
 
     //Anfrage 1.7
     public final static String TIME = "SELECT " + qTimeToCharHour + " AS Key, " +
