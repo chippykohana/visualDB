@@ -24,8 +24,7 @@ public class SQL_States {
     private final static String platzierung = "teilnahme.platzierung";
 
     //Aufgabe 1.1
-    public final static String WEBSITE = "SELECT nvl((" + clickurl + "), 'undefiniert') AS Key, " +
-            "COUNT(*) AS Anzahl " +
+    public final static String WEBSITE = "SELECT nvl((" + clickurl + "), 'undefiniert') AS Key, " + "COUNT(*) AS Anzahl " +
             "FROM " + TBL_aol + " " +
             "WHERE " + query + " LIKE " + searchMissUsa + " " +
             "GROUP BY " + clickurl + " " +
