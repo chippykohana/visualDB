@@ -6,11 +6,7 @@ import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
- * Created by young on 25.06.2017.
- */
 public class DB_Con {
-    private static final String DBNAME = "dbsBeuth";
     //private static final String URL = "jdbc:oracle:thin:@dbl43.beuth-hochschule.de:1521:oracle";
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:oracle";
     private static final String USER = "s860341";
@@ -19,7 +15,12 @@ public class DB_Con {
     private Connection con;
     private ArrayList<Info_Storage> list;
 
-    private Connection connect(String dbname) throws SQLException {
+    /**
+     * Authentifizierung
+     * @return Die Konnektivität zur Datenbank
+     * @throws SQLException wirft eine Exception mit Fehlermeldung
+     */
+    private Connection connect() throws SQLException {
         Connection con = null;
         try {
             Class.forName(DRIVER);
@@ -35,15 +36,18 @@ public class DB_Con {
         return list;
     }
 
+    /**
+     * Bearbeitung des SQL Statements und speichert die Datensätze in ein ResultSet
+     * @param statement SQL Statement
+     */
     public void print(String statement) {
-        String query = statement;
-        ResultSet rs = null;
+        ResultSet rs;
         try {
             Statement s = con.createStatement();
             long begin = System.currentTimeMillis();
-            rs = s.executeQuery(query);
+            rs = s.executeQuery(statement);
             long executiontime = System.currentTimeMillis() - begin;
-            list = this.printResultSet2Shell(rs, query, executiontime);
+            list = this.printResultSet2Shell(rs, statement, executiontime);
             rs.close();
             s.close();
         } catch (SQLException ex) {
@@ -55,19 +59,35 @@ public class DB_Con {
         }
     }
 
+    /**
+     * Verbindung zur Datenbank herstellen
+     * @throws SQLException wirft eine Exception mit Fehlermeldung
+     */
     public void openDB() throws SQLException {
-        con = this.connect(DBNAME);
+        con = this.connect();
         System.out.println("Connected to: " +
                 con.getMetaData().getDatabaseProductName() + " " +
                 con.getMetaData().getDatabaseProductVersion()
         );
     }
 
+    /**
+     * Verbindung zur Datenbank schliessen
+     * @throws SQLException wirft eine Exception mit Fehlermeldung
+     */
     public void closeDB() throws SQLException {
         con.close();
         System.out.println("Connection is closed: " + con.isClosed());
     }
 
+    /**
+     * In dieser Methode werden die Einträge der Ergebnisse jeweils in eine ArrayList gespeichert.
+     * @param rs ResultSet
+     * @param query Das SQL Statement
+     * @param executiontime Gesamtzeit der Bearbeitung vom SQL Statement
+     * @return eine ArrayList mit allen Ergebnissen, welches das SQL Statement liefert
+     * @throws SQLException wirft eine Exception mit Fehlermeldung
+     */
     private ArrayList<Info_Storage> printResultSet2Shell(ResultSet rs, String query, long executiontime) throws SQLException {
         ArrayList<Info_Storage> store = new ArrayList<>();
 
@@ -76,16 +96,15 @@ public class DB_Con {
         System.out.println("Execution Time: " + executiontime + "ms");
         System.out.println("===============================================================");
 
-        try {
+        /*try {
             convertToCsv(rs);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
         while (rs.next()) {
             String name = rs.getString("Key");
             int value = rs.getInt("Anzahl");
-            System.out.println("name : " + name + " value: " + value);
             store.add(new Info_Storage(name,value));
 
         }
@@ -94,14 +113,20 @@ public class DB_Con {
         return store;
     }
 
-    public static void convertToCsv(ResultSet rs) throws SQLException, FileNotFoundException {
-        PrintWriter csvWriter = new PrintWriter(new File("frage5.csv")) ;
+    /**
+     * Speichert die Ergebnisse der SQL Anfragen in eine CSV Datei
+     * @param rs ResultSet beinhaltet die Ergebnisse
+     * @throws SQLException wirft eine Exception mit Fehlermeldung
+     * @throws FileNotFoundException wirft eine Exception
+     */
+    private static void convertToCsv(ResultSet rs) throws SQLException, FileNotFoundException {
+        PrintWriter csvWriter = new PrintWriter(new File("frage9.csv")) ;
         ResultSetMetaData meta = rs.getMetaData() ;
         int numberOfColumns = meta.getColumnCount() ;
         while (rs.next()) {
-            String row = "\"" + rs.getString(1).replaceAll("\"","\\\"") + "\""  ;
+            StringBuilder row = new StringBuilder("\"" + rs.getString(1).replaceAll("\"", "\\\"") + "\"");
             for (int i = 2 ; i < numberOfColumns + 1 ; i ++ ) {
-                row += ",\"" + rs.getString(i).replaceAll("\"","\\\"") + "\"" ;
+                row.append(",\"").append(rs.getString(i).replaceAll("\"", "\\\"")).append("\"");
             }
             csvWriter.println(row) ;
         }

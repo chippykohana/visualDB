@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package database;
 
 import java.net.URL;
 import java.util.*;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -16,11 +15,10 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 
 /**
- * FXML Controller class
- *
- * @author beuth
+ * Visualisierung der Daten in einem Balkendiagramm
  */
 public class BarChartViewController implements Initializable {
 
@@ -28,7 +26,7 @@ public class BarChartViewController implements Initializable {
     NumberAxis yAxis;
 
     @FXML
-    BarChart<?, ?> barChart;
+    BarChart<String, Number> barChart;
 
     @FXML
     CategoryAxis xAxis;
@@ -40,7 +38,7 @@ public class BarChartViewController implements Initializable {
     private ArrayList<Info_Storage> list;
     XYChart.Series series;
 
-    public BarChartViewController(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
+    BarChartViewController(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         this.list = list;
         this.xName = xName;
         this.yName = yName;
@@ -49,7 +47,7 @@ public class BarChartViewController implements Initializable {
     }
 
     /**
-     * Initializes the controller class.
+     * Liest die Daten aus der ArrayList und fügt sie dem Diagramm hinzu
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -61,6 +59,7 @@ public class BarChartViewController implements Initializable {
 
         for (Info_Storage info_storage : list) series.getData().add(new XYChart.Data(info_storage.getKey(), info_storage.getValue()));
 
+        barChart.setAnimated(true);
         barChart.getData().addAll(series);
     }
 

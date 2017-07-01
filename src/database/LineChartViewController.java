@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.*;
 
 /**
- * Created by Nyoung on 26.06.2017.
+ * Visualisierung der Daten in einem Liniendiagramm
  */
 public class LineChartViewController implements Initializable {
 
@@ -32,7 +32,7 @@ public class LineChartViewController implements Initializable {
     private ArrayList<Info_Storage> list;
     XYChart.Series series;
 
-    public LineChartViewController(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
+    LineChartViewController(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         this.xName = xName;
         this.yName = yName;
         this.q = q;
@@ -40,6 +40,9 @@ public class LineChartViewController implements Initializable {
         this.seriesName = seriesName;
     }
 
+    /**
+     * Liest die Daten aus der ArrayList und fügt sie dem Diagramm hinzu
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         series = new XYChart.Series();

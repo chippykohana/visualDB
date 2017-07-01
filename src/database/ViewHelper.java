@@ -14,8 +14,6 @@ import javafx.stage.StageStyle;
 /**
  * Die Klasse ViewHelper besitzt statische Methoden für das Anzeigen von GUI-Elementen
  * in einen zusaetzlichen Fenster.
- *
- * @author beuth
  */
 public class ViewHelper {
 
@@ -28,7 +26,7 @@ public class ViewHelper {
      * @param seriesName Legende
      */
     public static void showDataLine(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
-        URL location = new ViewHelper().getClass().getResource("lineChartView.fxml");
+        URL location = ViewHelper.class.getResource("lineChartView.fxml");
         Initializable controller = new LineChartViewController(list, q, xName, yName, seriesName);
         showView(controller, location);
     }
@@ -39,7 +37,7 @@ public class ViewHelper {
      * @param q Frage String
      */
     public static void showDataPie(ArrayList<Info_Storage> list, String q) {
-        URL location = new ViewHelper().getClass().getResource("pieChartView.fxml");
+        URL location = ViewHelper.class.getResource("pieChartView.fxml");
         Initializable controller = new PieChartViewController(list, q);
         showView(controller, location);
     }
@@ -53,7 +51,7 @@ public class ViewHelper {
      * @param seriesName Legende
      */
     public static void showDataBar(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
-        URL location = new ViewHelper().getClass().getResource("barChartView.fxml");
+        URL location = ViewHelper.class.getResource("barChartView.fxml");
         Initializable controller = new BarChartViewController(list, q, xName, yName, seriesName);
         showView(controller, location);
     }
@@ -64,7 +62,7 @@ public class ViewHelper {
      * @param q Frage String
      */
     public static void showDataTable(ArrayList<Info_Storage> list, String q) {
-        URL location = new ViewHelper().getClass().getResource("tableViewView.fxml");
+        URL location = ViewHelper.class.getResource("tableViewView.fxml");
         Initializable controller = new TableViewViewController(list, q);
         showView(controller, location);
     }

@@ -1,7 +1,7 @@
 package database;
 
 /**
- * Created by young on 25.06.2017.
+ * Die SQL Statements
  */
 public class SQL_States {
 
@@ -23,7 +23,7 @@ public class SQL_States {
     private final static String status = "teilnahme.status";
     private final static String platzierung = "teilnahme.platzierung";
 
-    //Aufgabe 1.1
+    //Anfrage 1.1
     public final static String WEBSITE = "SELECT nvl((" + clickurl + "), 'undefiniert') AS Key, " + "COUNT(*) AS Anzahl " +
             "FROM " + TBL_aol + " " +
             "WHERE " + query + " LIKE " + searchMissUsa + " " +
@@ -31,7 +31,7 @@ public class SQL_States {
             "HAVING COUNT(*) >= 10 " +
             "ORDER BY COUNT(*) DESC";
 
-    //Aufgabe 1.2
+    //Anfrage 1.2
     public final static String CLICKS_PER_MONTHS = "SELECT COUNT(" + extractMonth + ") AS Anzahl, " +
             "CASE WHEN " + extractMonth + " = 3 then 'Maerz' " +
             "WHEN " + extractMonth + " = 4 then 'April' " +
@@ -41,7 +41,7 @@ public class SQL_States {
             "GROUP BY " + extractMonth + " " +
             "ORDER BY " + extractMonth;
 
-    //Aufgabe 1.3
+    //Anfrage 1.3
     public final static String NAME_OF_CANDIDATE = "SELECT " + status + " AS Key, " +
             "COUNT(" + platzierung + ") AS Anzahl " +
             "FROM " + TBL_teilnahme + " INNER JOIN (SELECT " + query + " FROM " + TBL_aol + " " +
@@ -51,14 +51,14 @@ public class SQL_States {
             "GROUP BY " + status + "," + platzierung + " " +
             "ORDER BY COUNT(" + platzierung + ") DESC";
 
-    //Aufgabe 1.4
+    //Anfrage 1.4
     public final static String NAME_OF_WINNER = "SELECT " + name + " AS Key, " +
             "COUNT(" + name + ") AS Anzahl " +
             "FROM " + TBL_aol + " INNER JOIN " + TBL_kandidat + " ON " + query + " LIKE LOWER('%' || " + name + " || '%') " +
             "GROUP BY " + name + " " +
             "ORDER BY COUNT(" + name + ") DESC";
 
-    //Aufgabe 1.5
+    //Anfrage 1.5
     public final static String DAYS_MOST_CLICKED = "SELECT " + qTimeToCharDate + " AS Key, " +
             "COUNT(*) AS Anzahl " +
             "FROM " + TBL_aol + " " +
@@ -67,16 +67,18 @@ public class SQL_States {
             "HAVING COUNT(*) >= 5 " +
             "ORDER BY " + qTimeToCharDate;
 
+    //Anfrage 1.6
     public final static String MOST_CLICKED_GENERAL = "";
 
+    //Anfrage 1.7
     public final static String TIME = "SELECT " + qTimeToCharHour + " AS Key, " +
             "COUNT(" + qTimeToCharHour + ") AS Anzahl " +
             "FROM " + TBL_aol + " " +
-            "WHERE " + query + " " + searchMissUsa + " " +
+            "WHERE " + query + " LIKE " + searchMissUsa + " " +
             "GROUP BY " + qTimeToCharHour + " " +
             "ORDER BY " + qTimeToCharHour;
 
-    //Aufgabe 1.8
+    //Anfrage 1.8
     public final static String PARTIC_BEFORE_CONTEST = "SELECT " + name + " AS Key, " +
             "COUNT(" + name + ") AS Anzahl " +
             "FROM " + TBL_aol + " INNER JOIN " + TBL_kandidat + " ON " + query + " LIKE LOWER('%' || " + name + " || '%') " +
@@ -84,7 +86,7 @@ public class SQL_States {
             "GROUP BY " + name + " " +
             "ORDER BY COUNT(" + name + ") DESC";
 
-    //Aufgabe 1.9
+    //Anfrage 1.9
     public final static String PARTIC_AFTER_CONTEST = "SELECT " + name + " AS Key, " +
             "COUNT(" + name + ") AS Anzahl " +
             "FROM " + TBL_aol + " INNER JOIN " + TBL_kandidat + " ON " + query + " LIKE LOWER('%' || " + name + " || '%') " +

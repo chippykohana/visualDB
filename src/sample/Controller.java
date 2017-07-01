@@ -65,6 +65,13 @@ public class Controller implements Initializable {
     }
 
     private void exeAufg7() {
+        System.out.println(SQL_States.TIME);
+        db_con.print(SQL_States.TIME);
+        ViewHelper.showDataLine(db_con.getList(),
+                "Zu welcher Uhrzeit wurden die meisten Anfrage gestellt?",
+                "Hour of day",
+                "Clicks",
+                "Searched for Miss USA");
     }
 
     private void exeAufg6() {

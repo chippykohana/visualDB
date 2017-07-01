@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.*;
 
 /**
- * Created by young on 25.06.2017.
+ * Visualisierung der Daten in einem Kreisdiagramm
  */
 public class PieChartViewController implements Initializable {
 
@@ -22,11 +22,14 @@ public class PieChartViewController implements Initializable {
     private String q;
     private ArrayList<Info_Storage> list;
 
-    public PieChartViewController(ArrayList<Info_Storage> list, String q) {
+    PieChartViewController(ArrayList<Info_Storage> list, String q) {
         this.list = list;
         this.q = q;
     }
 
+    /**
+     * Liest die Daten aus der ArrayList und fügt sie dem Diagramm hinzu
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         question.setText(q);

@@ -14,39 +14,39 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
- * Created by nhunimuni on 28.06.17.
+ * Visualisierung der Daten in einer Tabelle
  */
 public class TableViewViewController implements Initializable {
 
     @FXML
-    private TableView<Info_Storage> table;
+    TableView<Info_Storage> table;
     @FXML
-    private TableColumn<Info_Storage, String> website;
+    TableColumn<Info_Storage, String> website;
     @FXML
-    private TableColumn<Info_Storage, Integer> clicks;
+    TableColumn<Info_Storage, Integer> clicks;
     @FXML
-    private Label question;
+    Label question;
 
     private ObservableList<Info_Storage> data;
     private String q;
     private ArrayList<Info_Storage> list;
 
-    public TableViewViewController(ArrayList<Info_Storage> list, String q) {
+    TableViewViewController(ArrayList<Info_Storage> list, String q) {
         this.list = list;
         this.q = q;
     }
 
+    /**
+     * Liest die Daten aus der ArrayList und fügt sie dem Diagramm hinzu
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         question.setText(q);
-
         data = FXCollections.observableArrayList();
-        initTable();
-    }
 
-    private void initTable() {
         website.setCellValueFactory(new PropertyValueFactory<>("key"));
         clicks.setCellValueFactory(new PropertyValueFactory<>("value"));
+
         data.addAll(list);
         table.setItems(data);
     }
