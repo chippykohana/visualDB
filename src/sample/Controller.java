@@ -125,6 +125,11 @@ public class Controller implements Initializable {
 
     }
 
+    /**
+     * Liest aus einer CSV die Daten und speichert sie in eine ArrayList
+     * @param file Name der datei
+     * @return Mit Daten gefüllte ArrayList
+     */
     private ArrayList<Info_Storage> readCSV(String file) {
         list = new ArrayList<>();
         BufferedReader br = null;
@@ -139,7 +144,6 @@ public class Controller implements Initializable {
             while ((line = br.readLine()) != null) {
                 // use comma as separator
                 String[] data = line.split(cvsSplitBy);
-                System.out.println(data.length);
                 list.add(new Info_Storage(data[0], (Integer.parseInt(data[1]))));
             }
         } catch (IOException e) {

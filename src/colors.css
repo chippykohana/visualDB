@@ -8,10 +8,16 @@
 .default-color2.chart-bar { -fx-bar-fill: #a6aba9; }
 .default-color3.chart-bar { -fx-bar-fill: #000000; }
 
+.chart-bar {
+    -fx-animated: true;
+}
+
 .default-color0.chart-series-line { -fx-stroke: #1065c0; }
 .default-color1.chart-series-line { -fx-stroke: #ca352b; }
 .default-color2.chart-series-line { -fx-stroke: #a6aba9; }
 .default-color3.chart-series-line { -fx-stroke: #000000; }
+
+.default-color0.chart-line-symbol { -fx-background-color: #ca352b, white; }
 
 #round-red {
     -fx-background-color: #ca352b;

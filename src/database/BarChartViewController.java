@@ -3,11 +3,6 @@ package database;
 import java.net.URL;
 import java.util.*;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -37,7 +32,7 @@ public class BarChartViewController implements Initializable {
     private ArrayList<Info_Storage> list;
     XYChart.Series series;
 
-    BarChartViewController(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
+    public BarChartViewController(ArrayList<Info_Storage> list, String q, String xName, String yName, String seriesName) {
         this.list = list;
         this.xName = xName;
         this.yName = yName;
@@ -58,8 +53,6 @@ public class BarChartViewController implements Initializable {
 
         for (Info_Storage info_storage : list) series.getData().add(new XYChart.Data(info_storage.getKey(), info_storage.getValue()));
 
-        barChart.setAnimated(true);
         barChart.getData().addAll(series);
     }
-
 }
