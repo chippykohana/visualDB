@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.*;
@@ -36,6 +38,18 @@ public class PieChartViewController implements Initializable {
 
         for (Info_Storage info_storage : list) pieChart.getData().add(new PieChart.Data(info_storage.getKey(), info_storage.getValue()));
 
-        pieChart.setAnimated(true);
+        final Label caption = new Label("zeze");
+        caption.setTextFill(Color.WHITE);
+        caption.setStyle("-fx-font: 12 arial;");
+
+        for (final PieChart.Data data : pieChart.getData()) {
+            data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
+                caption.setTranslateX(e.getSceneX());
+                caption.setTranslateY(e.getSceneY());
+
+                caption.setText(String.valueOf(data.getPieValue()));
+                caption.setVisible(true);
+            });
+        }
     }
 }

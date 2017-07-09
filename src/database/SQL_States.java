@@ -28,7 +28,6 @@ public class SQL_States {
             "FROM " + TBL_aol + " " +
             "WHERE " + query + " LIKE " + searchMissUsa + " " +
             "GROUP BY " + clickurl + " " +
-            "HAVING COUNT(*) >= 10 " +
             "ORDER BY COUNT(*) DESC";
 
     //Anfrage 1.2
@@ -45,7 +44,7 @@ public class SQL_States {
     public final static String NAME_OF_CANDIDATE = "SELECT " + status + " AS Key, " +
             "COUNT(" + platzierung + ") AS Anzahl " +
             "FROM " + TBL_teilnahme + " INNER JOIN (SELECT " + query + " FROM " + TBL_aol + " " +
-            "WHERE " + query + " LIKE '%miss usa%' and " + query + " NOT LIKE '%200%') " +
+            "WHERE " + query + " LIKE " + searchMissUsa + " AND " + query + " NOT LIKE '%200%') " +
             "ON " + query + " LIKE LOWER('%' || " + status + " || '%') " +
             "OR " + query + " LIKE ('%' || " + platzierung + "|| '%') " +
             "GROUP BY " + status + "," + platzierung + " " +

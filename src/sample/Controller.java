@@ -129,7 +129,6 @@ public class Controller implements Initializable {
         //db_con.print(SQL_States.WEBSITE);
         ViewHelper.showDataTable(readCSV("frage1.csv"),
                 "Welche Webseiten wurden am meisten angeklickt?");
-
     }
 
     /**
